@@ -303,8 +303,7 @@ class _HomePageState extends State<HomePage> {
 
                           return Container(
                             width: 200,
-                            margin: const EdgeInsets.only(
-                                right: 12), // spacing between items
+                            margin: const EdgeInsets.only(right: 12),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(16),
                               child: Stack(

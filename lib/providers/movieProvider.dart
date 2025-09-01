@@ -14,7 +14,6 @@ class MovieProvider with ChangeNotifier {
   bool get loading => _loading;
   MovieDetail? get details => _details;
 
-  /// Fetch trending movies (default: Avengers)
   Future<void> fetchTrending() async {
     _loading = true;
     notifyListeners();
@@ -22,6 +21,7 @@ class MovieProvider with ChangeNotifier {
     try {
       final results = await _service.searchMovies("avengers", 1);
       _trending = results;
+      notifyListeners();
     } catch (e) {
       _trending = [];
     }
@@ -30,7 +30,6 @@ class MovieProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  /// Fetch movie details by imdbID
   Future<MovieDetail?> fetchMovieDetail(String imdbID) async {
     _loading = true;
     notifyListeners();
